@@ -1,0 +1,132 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', '-g', 'compass' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.33
+4 verbose cache add [ 'compass', null ]
+5 verbose cache add name=undefined spec="compass" args=["compass",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'compass',
+6 verbose parsed url   path: 'compass',
+6 verbose parsed url   href: 'compass' }
+7 silly lockFile 9d0f85fe-compass compass
+8 verbose lock compass /Users/gordo/.npm/9d0f85fe-compass.lock
+9 silly lockFile 9d0f85fe-compass compass
+10 silly lockFile 9d0f85fe-compass compass
+11 verbose addNamed [ 'compass', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile 1c2955e8-compass compass@
+14 verbose lock compass@ /Users/gordo/.npm/1c2955e8-compass.lock
+15 silly addNameRange { name: 'compass', range: '*', hasData: false }
+16 verbose request where is /compass
+17 verbose request registry https://registry.npmjs.org/
+18 verbose request id 593198c2fc4b959f
+19 verbose url raw /compass
+20 verbose url resolving [ 'https://registry.npmjs.org/', './compass' ]
+21 verbose url resolved https://registry.npmjs.org/compass
+22 verbose request where is https://registry.npmjs.org/compass
+23 info trying registry request attempt 1 at 06:50:59
+24 verbose etag "21E4O8HJ40J78EPPFXZ31U27X"
+25 http GET https://registry.npmjs.org/compass
+26 http 304 https://registry.npmjs.org/compass
+27 silly registry.get cb [ 304,
+27 silly registry.get   { date: 'Tue, 02 Dec 2014 13:50:58 GMT',
+27 silly registry.get     server: 'Apache',
+27 silly registry.get     via: '1.1 varnish',
+27 silly registry.get     'last-modified': 'Tue, 02 Dec 2014 13:50:58 GMT',
+27 silly registry.get     'cache-control': 'max-age=60',
+27 silly registry.get     etag: '"21E4O8HJ40J78EPPFXZ31U27X"',
+27 silly registry.get     age: '0',
+27 silly registry.get     'x-served-by': 'cache-iad2143-IAD',
+27 silly registry.get     'x-cache': 'MISS',
+27 silly registry.get     'x-cache-hits': '0',
+27 silly registry.get     'x-timer': 'S1417528258.734830,VS0,VE8',
+27 silly registry.get     vary: 'Accept',
+27 silly registry.get     'content-length': '0',
+27 silly registry.get     'keep-alive': 'timeout=10, max=50',
+27 silly registry.get     connection: 'Keep-Alive' } ]
+28 verbose etag https://registry.npmjs.org/compass from cache
+29 silly addNameRange number 2 { name: 'compass', range: '*', hasData: true }
+30 silly addNameRange versions [ 'compass', [ '0.1.0' ] ]
+31 verbose addNamed [ 'compass', '0.1.0' ]
+32 verbose addNamed [ '0.1.0', '0.1.0' ]
+33 silly lockFile 09d61c13-compass-0-1-0 compass@0.1.0
+34 verbose lock compass@0.1.0 /Users/gordo/.npm/09d61c13-compass-0-1-0.lock
+35 silly lockFile 09d61c13-compass-0-1-0 compass@0.1.0
+36 silly lockFile 09d61c13-compass-0-1-0 compass@0.1.0
+37 silly lockFile 1c2955e8-compass compass@
+38 silly lockFile 1c2955e8-compass compass@
+39 silly resolved [ { name: 'compass',
+39 silly resolved     version: '0.1.0',
+39 silly resolved     description: 'Compass for node.js',
+39 silly resolved     main: 'index.js',
+39 silly resolved     scripts: { test: 'echo "Error: no test specified" && exit 1' },
+39 silly resolved     repository: { type: 'git', url: 'git@github.com:ngryman/compass.git' },
+39 silly resolved     keywords: [ 'compass', 'sass', 'scss' ],
+39 silly resolved     author: { name: 'Nicolas Gryman' },
+39 silly resolved     license: 'MIT',
+39 silly resolved     devDependencies:
+39 silly resolved      { mocha: '1.8.x',
+39 silly resolved        chai: '1.5.x',
+39 silly resolved        express: '3.1.x',
+39 silly resolved        supertest: '0.5.x' },
+39 silly resolved     readme: '# compass\r\n\r\n[Compass](http://compass-style.org) wrapper and middleware for node.js.\r\n\r\n## Install\r\n\r\nEnsure **compass** is already installed ([install compass](http://compass-style.org/install)).\r\n\r\nThen just use **npm**:\r\n\r\n```javascript\r\nnpm install compass\r\n```\r\n\r\n## Usage\r\n\r\n### Middelware\r\n\r\nEnsure **compass** comes before a static middleware. **compass** generates your css files but **does not** serve them. You need a static middleware for that.\r\n\r\n```javascript\r\nvar compass = require(\'compass\'),\r\n    express = require(\'express\')();\r\n\r\napp = express();\r\napp.use(compass({ cwd: __dirname + \'public\' })\r\napp.use(express.static(__dirname + \'public\');\r\n```\r\n\r\n### Manually\r\n\r\nFor now **compass** only wraps the compile action.\r\n\r\n```javascript\r\nvar compass = require(\'compass\');\r\n\r\n// compiles in process.cwd()\r\ncompass.compile(function(err, stdout, stderr) {\r\n    console.log(\'done\');\r\n});\r\n\r\n// compiles in the given directory\r\ncompass.compile({ cwd: __dirname + \'public\' }, function(err, stdout, stderr) {\r\n    console.log(\'done\');\r\n});\r\n```\r\n\r\n## Options\r\n\r\nFor now **compass** only offer the `cwd` option.\r\n\r\nIf you want to customize stuff, please use a `config.rb` ([http://compass-style.org/help/tutorials/configuration-reference](configuration reference))',
+39 silly resolved     readmeFilename: 'README.md',
+39 silly resolved     _id: 'compass@0.1.0',
+39 silly resolved     dist:
+39 silly resolved      { shasum: '174babebcddaf0e37f58abb9a1676d561c824e1f',
+39 silly resolved        tarball: 'http://registry.npmjs.org/compass/-/compass-0.1.0.tgz' },
+39 silly resolved     _npmVersion: '1.1.65',
+39 silly resolved     _npmUser: { name: 'ngryman', email: 'ngryman@gmail.com' },
+39 silly resolved     maintainers: [ [Object] ],
+39 silly resolved     directories: {},
+39 silly resolved     _shasum: '174babebcddaf0e37f58abb9a1676d561c824e1f',
+39 silly resolved     _from: 'compass@',
+39 silly resolved     _resolved: 'https://registry.npmjs.org/compass/-/compass-0.1.0.tgz',
+39 silly resolved     bugs: { url: 'https://github.com/ngryman/compass/issues' },
+39 silly resolved     homepage: 'https://github.com/ngryman/compass' } ]
+40 info install compass@0.1.0 into /usr/local/lib
+41 info installOne compass@0.1.0
+42 verbose lib/node_modules/compass unbuild
+43 verbose tar unpack /Users/gordo/.npm/compass/0.1.0/package.tgz
+44 silly lockFile bcdae292-r-local-lib-node-modules-compass tar:///usr/local/lib/node_modules/compass
+45 verbose lock tar:///usr/local/lib/node_modules/compass /Users/gordo/.npm/bcdae292-r-local-lib-node-modules-compass.lock
+46 silly lockFile 8caea504-do-npm-compass-0-1-0-package-tgz tar:///Users/gordo/.npm/compass/0.1.0/package.tgz
+47 verbose lock tar:///Users/gordo/.npm/compass/0.1.0/package.tgz /Users/gordo/.npm/8caea504-do-npm-compass-0-1-0-package-tgz.lock
+48 silly gunzTarPerm modes [ '755', '644' ]
+49 error Error: EACCES, mkdir '/usr/local/lib/node_modules/compass'
+49 error  { [Error: EACCES, mkdir '/usr/local/lib/node_modules/compass']
+49 error   errno: 3,
+49 error   code: 'EACCES',
+49 error   path: '/usr/local/lib/node_modules/compass',
+49 error   fstream_type: 'Directory',
+49 error   fstream_path: '/usr/local/lib/node_modules/compass',
+49 error   fstream_class: 'DirWriter',
+49 error   fstream_stack:
+49 error    [ '/usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23',
+49 error      '/usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53',
+49 error      'Object.oncomplete (fs.js:107:15)' ] }
+50 error Please try running this command again as root/Administrator.
+51 error System Darwin 14.0.0
+52 error command "node" "/usr/local/bin/npm" "install" "-g" "compass"
+53 error cwd /Users/gordo/Development/blweb
+54 error node -v v0.10.33
+55 error npm -v 1.4.28
+56 error path /usr/local/lib/node_modules/compass
+57 error fstream_path /usr/local/lib/node_modules/compass
+58 error fstream_type Directory
+59 error fstream_class DirWriter
+60 error code EACCES
+61 error errno 3
+62 error stack Error: EACCES, mkdir '/usr/local/lib/node_modules/compass'
+63 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23
+63 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53
+63 error fstream_stack Object.oncomplete (fs.js:107:15)
+64 verbose exit [ 3, true ]

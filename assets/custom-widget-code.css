@@ -1,0 +1,45 @@
+/* Add custom CSS here */
+
+a:-webkit-any-link {color: pink!important;text-decoration: none!important;}
+a {color: pink!important;}
+.healcode-date-label {color: white!important;}
+div.healcode.appointments .trainer-label {
+ text-align: center;
+}
+.healcode-date-label {
+  text-align: center!important;
+}
+div.healcode div.hc_footer {
+  display: none !important;
+}
+div.list_view div.pre-filters select {
+  width: 235px;
+  height: 30px;
+  -webkit-appearance: none;
+  -moz-appearance: button;
+  padding: 6px;
+  display: inline-block;
+  float: right;
+}
+div.healcode .ui-widget-content {
+  border:none;
+}
+.ui-datepicker .ui-datepicker-header {
+  position: relative;
+  padding: .2em 0;
+  top: -20px;
+}
+.ui-datepicker {
+  width: 300px;
+  height: 270px;
+  padding: 10px;
+  margin: auto;
+  position: relative;
+  top: 50px;
+}
+.hc_footer {
+  visibility: hidden !important;
+}
+div.healcode .ui-state-default, div.healcode .ui-widget-content .ui-state-default {
+  color: gray!important;
+}
